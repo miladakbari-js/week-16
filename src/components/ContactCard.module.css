@@ -1,0 +1,35 @@
+tr {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+td{
+    font-size: 17px;
+    padding: 5px;
+}
+tr:nth-child(even) {
+  background-color: #f0f8ff; 
+}
+.status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.status button{
+    width: 50px;
+    height: 20px;
+    border: none;
+    font-size: 0.75rem;
+    padding: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.edit{
+    background-color: #fff099;
+    color:#686868;
+}
+.delete{
+    background-color: #ffd5d5;
+    color: rgb(255, 44, 44);
+}

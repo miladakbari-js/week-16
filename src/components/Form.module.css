@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  height: 40px;
+}
+.container div {
+  display: flex;
+  justify-content: space-around;
+
+}
+.container input {
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+  color: #32557a;
+  font-size: 0.89rem;
+  border-radius: 10px;
+  border: 1px solid #32557a;
+}
+.container input:focus {
+  outline: none;
+}
+.container button {
+  width: 80px;
+  height: 35px;
+  color: #636262;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.container button:hover{
+    border: 1px solid #636262;
+    transform: scale(1.1);
+}
+.create {
+  background-color: #a6e2a6;
+}
+.edit {
+  background-color: #f8e262;
+}
+.invalid{
+  background-color: #ffe6e6;
+}
+.error{
+  color: #f84646;
+  font-size: 0.6rem;
+  text-align: left;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.errorBox{
+  height: 10px;
+  width: fit-content;
+}

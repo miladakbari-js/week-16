@@ -1,0 +1,27 @@
+.container input {
+  width: 400px;
+  height: 45px;
+  padding: 10px;
+  border: 1px solid #acacac;
+  border-right: none;
+  font-size: 0.85rem;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.container input:focus {
+  outline: none;
+}
+.searchbutton {
+  height: 45px;
+  width: 50px;
+  background-color: #fff;
+  border: 1px solid #acacac;
+  color: black;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+ cursor: pointer;
+ padding-right: 10px;
+}
+

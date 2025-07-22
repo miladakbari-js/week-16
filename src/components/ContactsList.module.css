@@ -1,0 +1,46 @@
+.container{
+    width: 1170px;
+    margin:20px auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: sans-serif;
+}
+thead {
+  background-color: #007acc;
+  height: 30px;
+  color: white;
+}
+th{
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.deletebutton{
+    width: 150px;
+    height: 40px;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #fadddd;
+    color: #ff1e1e;
+}
+.deletebutton:hover{
+    border: 1px solid #ff1e1e;
+    transform: scale(1.1);
+}
+
+.control {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+.container p{
+  text-align: center;
+}
