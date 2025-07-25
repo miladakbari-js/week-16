@@ -9,19 +9,25 @@ const initialState = {
   clearSearch: false,
   alertMessage: null,
 };
-
+const updateLocalStorage = (data)=>{
+  localStorage.setItem("boto_contacts" , JSON.stringify(data))
+}
 const contactReducer = (state, action) => {
   switch (action.type) {
     case "ADD_CONTACT":
+      const newContacts = [...state.contacts, action.payload];
+     updateLocalStorage(newContacts)
       return {
         ...state,
-        contacts: [...state.contacts, action.payload],
-        allContacts: [...state.allContacts, action.payload],
+        contacts: newContacts,
+        allContacts: newContacts,
       };
+
     case "DELETE_CONTACT":
       const filtredContacts = state.contacts.filter(
         (contact) => contact.id !== state.targetId
       );
+      updateLocalStorage(filtredContacts)
       return {
         ...state,
         contacts: filtredContacts,
@@ -39,6 +45,7 @@ const contactReducer = (state, action) => {
       const updatedContact = state.contacts.map((item) =>
         item.id === action.payload.id ? action.payload : item
       );
+      updateLocalStorage(updatedContact)
       return {
         ...state,
         contacts: updatedContact,
@@ -47,6 +54,7 @@ const contactReducer = (state, action) => {
         showForm: false,
       };
     case "DELETE_ALL_CONTACT":
+      updateLocalStorage([])
       return {
         ...state,
         contacts: [],
@@ -120,10 +128,17 @@ const contactReducer = (state, action) => {
         deleteAllModal: false,
       };
     case "HIDE_ALERT_MODAL":
-      return{
+      return {
         ...state,
-        alertMessage:null,
+        alertMessage: null,
         showModal: false,
+      };
+
+    case "SET_CONTACTS":
+      return {
+        ...state,
+        contacts: action.payload,
+        allContacts: action.payload,
       };
   }
 };

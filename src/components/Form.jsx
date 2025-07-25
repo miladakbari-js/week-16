@@ -35,7 +35,13 @@ function Form() {
       !contact.job ||
       !contact.phone
     ) {
-      alert("please enter Valid Data!!!");
+      dispatch({
+        type: "SHOW_ALERT_MODAL",
+        payload: "❗ Please complete information.",
+      });
+      setTimeout(() => {
+        dispatch({ type: "HIDE_ALERT_MODAL" });
+      }, 2000);
       return;
     }
 
