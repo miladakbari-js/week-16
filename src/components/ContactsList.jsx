@@ -6,7 +6,7 @@ import ContactCard from "./ContactCard";
 function ContactsList() {
   const { state, dispatch } = useContactContext();
   const { contacts } = state;
-
+ 
   const deleteAllHandler = () => {
     dispatch({ type: "TOGGLE_MODAL" });
     dispatch({ type: "SET_DELETE_ALL_MODAL", payload: true }); 
