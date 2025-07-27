@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import Form from "./components/Form";
 import ContactsList from "./components/ContactsList";
 import Modal from "./components/Modal";
+import { deleteContact } from "./services/contactService";
 
 function App() {
   const { state, dispatch } = useContactContext();
@@ -15,7 +16,8 @@ function App() {
     alertMessage,
   } = state;
 
-  const confirmDelete = () => {
+  const confirmDelete =async () => {
+    await deleteContact(targetId);
     dispatch({
       type: "DELETE_CONTACT",
       payload: targetId,

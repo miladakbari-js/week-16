@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import inputs from "../constants/inputs.js";
 import styles from "./Form.module.css";
 import { useContactContext } from "../context/ContactContext.jsx";
+import { addContact, updateContact } from "../services/contactService.js";
 
 function Form() {
   const { state, dispatch } = useContactContext();
@@ -27,7 +28,7 @@ function Form() {
     setContact((contact) => ({ ...contact, [name]: value }));
   };
 
-  const addHandler = () => {
+  const addHandler =async () => {
     if (
       !contact.name ||
       !contact.lastName ||
@@ -59,21 +60,27 @@ function Form() {
     setErrors({});
 
     if (editableContact) {
+      const updated =await updateContact(contact)
+
       dispatch({
         type: "UPDATE_CONTACT",
-        payload: contact,
+        payload: updated,
       });
 
       dispatch({
         type: "SET_EDITABLE_CONTACT",
         payload: null,
       });
+      
     } else {
-      const id = Math.floor(Math.random() * 1000);
-      const newContact = { ...contact, id };
+     
+      const newContact = { ...contact};
+
+      const savedContact = await addContact(newContact)
+
       dispatch({
         type: "ADD_CONTACT",
-        payload: newContact,
+        payload: savedContact,
       });
     }
 
